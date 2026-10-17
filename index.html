@@ -1,0 +1,362 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#09090b" />
+    <meta
+      name="description"
+      content="PUMPLOGは、日々の筋トレ記録と仲間とのグループ共有をひとつにまとめる筋トレSNSです。"
+    />
+    <title>PUMPLOG | 筋トレ記録・グループ共有SNS</title>
+    <style>
+      :root {
+        color-scheme: dark;
+        font-family:
+          Inter, -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Yu Gothic UI",
+          "Noto Sans JP", sans-serif;
+        background: #09090b;
+        color: #fafafa;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        background: #09090b;
+        scroll-behavior: smooth;
+      }
+
+      body {
+        min-width: 0;
+        margin: 0;
+        overflow-x: hidden;
+        background:
+          radial-gradient(circle at 78% 10%, rgba(16, 185, 129, 0.13), transparent 28rem),
+          #09090b;
+      }
+
+      a {
+        color: inherit;
+      }
+
+      .shell {
+        width: min(100% - 32px, 1040px);
+        margin-inline: auto;
+      }
+
+      header {
+        padding-top: max(22px, env(safe-area-inset-top));
+      }
+
+      nav {
+        display: flex;
+        min-height: 56px;
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
+        border-bottom: 1px solid #27272a;
+      }
+
+      .brand {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        color: #fff;
+        font-size: 17px;
+        font-weight: 800;
+        letter-spacing: 0.08em;
+        text-decoration: none;
+      }
+
+      .brand-mark {
+        display: grid;
+        width: 32px;
+        height: 32px;
+        place-items: center;
+        border-radius: 10px;
+        background: #10b981;
+        color: #052e24;
+        font-size: 19px;
+        font-weight: 900;
+      }
+
+      .nav-link {
+        min-height: 44px;
+        display: inline-flex;
+        align-items: center;
+        color: #a1a1aa;
+        font-size: 13px;
+        font-weight: 700;
+        text-decoration: none;
+      }
+
+      .nav-link:hover,
+      .nav-link:focus-visible {
+        color: #6ee7b7;
+      }
+
+      main {
+        padding-bottom: 64px;
+      }
+
+      .hero {
+        display: grid;
+        min-height: 560px;
+        align-items: center;
+        padding: 84px 0 72px;
+      }
+
+      .eyebrow {
+        margin: 0 0 18px;
+        color: #34d399;
+        font-size: 12px;
+        font-weight: 800;
+        letter-spacing: 0.16em;
+      }
+
+      h1 {
+        max-width: 760px;
+        margin: 0;
+        font-size: clamp(44px, 8vw, 88px);
+        line-height: 0.98;
+        letter-spacing: -0.055em;
+      }
+
+      .hero-copy {
+        max-width: 620px;
+        margin: 28px 0 0;
+        color: #a1a1aa;
+        font-size: clamp(16px, 2.4vw, 20px);
+        line-height: 1.9;
+      }
+
+      .accent {
+        color: #34d399;
+      }
+
+      .feature-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 16px;
+      }
+
+      .feature {
+        min-width: 0;
+        padding: 28px;
+        border: 1px solid #27272a;
+        border-radius: 24px;
+        background: rgba(24, 24, 27, 0.72);
+      }
+
+      .feature-number {
+        display: block;
+        margin-bottom: 32px;
+        color: #34d399;
+        font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+        font-size: 12px;
+      }
+
+      .feature h2 {
+        margin: 0;
+        font-size: 20px;
+      }
+
+      .feature p {
+        margin: 12px 0 0;
+        color: #a1a1aa;
+        font-size: 14px;
+        line-height: 1.8;
+      }
+
+      .contact {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 24px;
+        margin-top: 72px;
+        padding: 32px;
+        border: 1px solid rgba(16, 185, 129, 0.3);
+        border-radius: 24px;
+        background: rgba(6, 78, 59, 0.18);
+      }
+
+      .contact h2 {
+        margin: 0;
+        font-size: 22px;
+      }
+
+      .contact p {
+        margin: 8px 0 0;
+        color: #a1a1aa;
+        font-size: 14px;
+      }
+
+      .button {
+        display: inline-flex;
+        min-height: 48px;
+        flex: 0 0 auto;
+        align-items: center;
+        justify-content: center;
+        border-radius: 14px;
+        padding: 0 20px;
+        background: #10b981;
+        color: #052e24;
+        font-size: 14px;
+        font-weight: 800;
+        text-decoration: none;
+      }
+
+      .button:hover,
+      .button:focus-visible {
+        background: #34d399;
+      }
+
+      footer {
+        padding: 32px 0 max(32px, env(safe-area-inset-bottom));
+        border-top: 1px solid #27272a;
+      }
+
+      .footer-row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
+        color: #71717a;
+        font-size: 12px;
+      }
+
+      .footer-links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+      }
+
+      .footer-links a {
+        min-height: 44px;
+        display: inline-flex;
+        align-items: center;
+        text-decoration: none;
+      }
+
+      .footer-links a:hover,
+      .footer-links a:focus-visible {
+        color: #d4d4d8;
+      }
+
+      :focus-visible {
+        outline: 2px solid #34d399;
+        outline-offset: 3px;
+      }
+
+      @media (max-width: 720px) {
+        .shell {
+          width: min(100% - 24px, 1040px);
+        }
+
+        .hero {
+          min-height: auto;
+          padding: 72px 4px 56px;
+        }
+
+        h1 {
+          font-size: clamp(43px, 15vw, 64px);
+        }
+
+        .hero-copy {
+          font-size: 16px;
+          line-height: 1.8;
+        }
+
+        .feature-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .feature {
+          padding: 24px;
+        }
+
+        .feature-number {
+          margin-bottom: 20px;
+        }
+
+        .contact,
+        .footer-row {
+          align-items: stretch;
+          flex-direction: column;
+        }
+
+        .button {
+          width: 100%;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        html {
+          scroll-behavior: auto;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="shell">
+      <nav aria-label="メインナビゲーション">
+        <a class="brand" href="/" aria-label="PUMPLOG ホーム">
+          <span class="brand-mark" aria-hidden="true">P</span>
+          PUMPLOG
+        </a>
+        <a class="nav-link" href="#about">PUMPLOGについて</a>
+      </nav>
+    </header>
+
+    <main class="shell">
+      <section class="hero" aria-labelledby="hero-title">
+        <div>
+          <p class="eyebrow">TRAIN. RECORD. CONNECT.</p>
+          <h1 id="hero-title">記録が、<br /><span class="accent">つながる。</span></h1>
+          <p class="hero-copy">
+            PUMPLOGは、日々の筋トレをセット単位で記録し、仲間とグループで共有できる
+            iPhone向け筋トレSNSです。
+          </p>
+        </div>
+      </section>
+
+      <section id="about" class="feature-grid" aria-label="主な特徴">
+        <article class="feature">
+          <span class="feature-number">01 / RECORD</span>
+          <h2>トレーニングを記録</h2>
+          <p>種目、重量、回数、セットをまとめて記録。積み重ねを振り返るためのログを残せます。</p>
+        </article>
+        <article class="feature">
+          <span class="feature-number">02 / SHARE</span>
+          <h2>グループで共有</h2>
+          <p>所属するグループへトレーニングを共有。仲間の活動をタイムラインで確認できます。</p>
+        </article>
+        <article class="feature">
+          <span class="feature-number">03 / CONTINUE</span>
+          <h2>継続を見える形に</h2>
+          <p>履歴と分析からトレーニングを振り返り、次の一回につながる習慣づくりを支えます。</p>
+        </article>
+      </section>
+
+      <section class="contact" aria-labelledby="contact-title">
+        <div>
+          <h2 id="contact-title">お問い合わせ</h2>
+          <p>PUMPLOGに関するご質問・ご連絡はこちらから。</p>
+        </div>
+        <a class="button" href="mailto:pumplog.contact@gmail.com">メールを作成</a>
+      </section>
+    </main>
+
+    <footer>
+      <div class="shell footer-row">
+        <span>© PUMPLOG</span>
+        <div class="footer-links">
+          <a href="https://kyonko310.github.io/pumplog-legal/privacy/">プライバシーポリシー</a>
+          <a href="mailto:pumplog.contact@gmail.com">お問い合わせ</a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
